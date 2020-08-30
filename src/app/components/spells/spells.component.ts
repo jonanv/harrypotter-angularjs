@@ -41,7 +41,9 @@ export class SpellsComponent implements OnInit {
       .pipe(first())
       .subscribe((response: Spells[]) => {
         this.spells = response;
-        this.loading = false;
+        setTimeout(() => {
+          this.loading = false;
+        }, 1000);
       });
   }
 

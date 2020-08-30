@@ -4,17 +4,17 @@
 
 <div *ngIf="!loading">
 
-    <div *ngIf="house">
-        <div class="card text-white bg-warning mb-3">
+    <div *ngIf="house" class="animate__animated animate__zoomIn animate__slow">
+        <div class="card text-white bg-dark mb-3">
             <div class="card-body">
-                <h5 class="card-title">Name: {{ house.name }}</h5>
-                <p class="card-text">Mascot: {{ house.mascot }}</p>
-                <p class="card-text">Head of house: {{ house.headOfHouse }}</p>
-                <p class="card-text">House ghost: {{ house.houseGhost }}</p>
-                <p class="card-text">Founder: {{ house.founder }}</p>
+                <h5 class="card-title"><b>Name</b>: {{ house.name }}</h5>
+                <p class="card-text"><b>Mascot</b>: {{ house.mascot }}</p>
+                <p class="card-text">H<b>ead of house</b>: {{ house.headOfHouse }}</p>
+                <p class="card-text"><b>House ghost</b>: {{ house.houseGhost }}</p>
+                <p class="card-text"><b>Founder</b>: {{ house.founder }}</p>
             </div>
             <div class="card-footer">
-                <a [routerLink]="['/houses']" class="btn btn-dark btn-block">Regresar</a>
+                <a [routerLink]="['/houses']" class="btn btn-outline-warning btn-block">Regresar</a>
             </div>
         </div>
     </div>
@@ -22,12 +22,12 @@
     <div class="card-columns">
 
         <!-- Bucle que recorre el arreglo de miembros por la variable miembro -->
-        <div *ngFor="let member of members; let i = index" class="card">
+        <div *ngFor="let member of members; let i = index" class="card animate__animated animate__rotateIn animate__slow">
             <div class="card-body">
                 <h4 class="card-title">{{ member.name }}</h4>
             </div>
             <div class="card-footer">
-                <button type="button" (click)="showCharacter(house._id ,member._id)" class="btn btn-outline-warning btn-block">Show more...</button>
+                <button type="button" (click)="showCharacter(house._id ,member._id)" class="btn btn-warning btn-block">Show more...</button>
             </div>
         </div>
 

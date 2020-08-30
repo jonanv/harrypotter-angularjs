@@ -2,9 +2,9 @@
     <app-loading></app-loading>
 </div>
 
-<div *ngIf="!loading">
+<div *ngIf="!loading" cclass="animate__animated animate__fadeIn">
 
-    <div class="agtable">
+    <div class="agtable bg-light animate__animated animate__fadeIn">
         <ag-table #table paginate="20" [items]="spells" height="500px" min-width="500px">
             <ag-table-header>
                 <ag-table-col filter field="spell" placeholder="Spell">
