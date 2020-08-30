@@ -27,7 +27,6 @@ export class CharactersComponent implements OnInit {
     this.harrypotterService.getCharacters()
       .pipe(first())
       .subscribe((response: Characters[]) => {
-        console.log(response);
         this.characters = response;
       });
   }
