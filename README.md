@@ -8,7 +8,8 @@
 [![License][license-badge]][license-url]
 
 # Site
-<!-- ![harrypotter angularjs](https://i.imgur.com/QZgwkql.png) -->
+![harrypotter angularjs 1](https://i.imgur.com/UMNE6YZ.png)
+![harrypotter angularjs 2](https://i.imgur.com/4fH0ZDJ.png)
 
 # Install dependences
 in ```harrypotter-angularjs/```
