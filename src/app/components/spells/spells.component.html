@@ -3,17 +3,29 @@
 </div>
 
 <div *ngIf="!loading">
-    <div class="card-columns">
 
-        <div *ngFor="let spell of spells; let i = index" class="card">
-            <div class="card-header">
-                <h4 class="card-title">{{ spell.spell | uppercase }}</h4>
-            </div>
-            <div class="card-body">
-                <p class="card-text">Type: {{ spell.type | titlecase }}</p>
-                <p class="card-text">Effect: {{ spell.effect }}</p>
-            </div>
-        </div>
-
+    <div class="agtable">
+        <ag-table #table paginate="20" [items]="spells" height="500px" min-width="500px">
+            <ag-table-header>
+                <ag-table-col filter field="spell" placeholder="Spell">
+                    Spell
+                </ag-table-col>
+                <ag-table-col filter="select" field="type" [options]="type" placeholder="Type">
+                    Type
+                </ag-table-col>
+                <ag-table-col filter field="effect" placeholder="Effect">
+                    Effect
+                </ag-table-col>
+            </ag-table-header>
+            <ag-table-body>
+                <ag-table-row *ngFor="let item of table.items">
+                    <!-- <ag-table-cell>{{ item._id }}</ag-table-cell> -->
+                    <ag-table-cell>{{ item.spell ? item.spell : "-" }}</ag-table-cell>
+                    <ag-table-cell>{{ item.type ? item.type : "-" }}</ag-table-cell>
+                    <ag-table-cell>{{ item.effect ? item.effect : "-" }}</ag-table-cell>
+                </ag-table-row>
+            </ag-table-body>
+        </ag-table>
     </div>
+
 </div>

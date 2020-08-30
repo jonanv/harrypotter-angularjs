@@ -12,6 +12,14 @@ export class SpellsComponent implements OnInit {
 
   spells: Spells[] = [];
   loading: boolean = false;
+  type = [
+    'Charm',
+    'Enchantment',
+    'Spell',
+    'Hex',
+    'Curse',
+    'Jinx'
+  ];
 
   constructor(
     private harrypotterService: HarrypotterService
