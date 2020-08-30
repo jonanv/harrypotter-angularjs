@@ -1,1 +1,13 @@
-<p>spells works!</p>
+<div class="card-columns">
+
+    <div *ngFor="let spell of spells; let i = index" class="card">
+        <div class="card-header">
+            <h4 class="card-title">{{ spell.spell | uppercase }}</h4>
+        </div>
+        <div class="card-body">
+            <p class="card-text">Type: {{ spell.type | titlecase }}</p>
+            <p class="card-text">Effect: {{ spell.effect }}</p>
+        </div>
+    </div>
+
+</div>

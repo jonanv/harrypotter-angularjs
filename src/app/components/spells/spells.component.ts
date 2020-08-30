@@ -25,7 +25,6 @@ export class SpellsComponent implements OnInit {
     this.harrypotterService.getSpells()
       .pipe(first())
       .subscribe((response: Spells[]) => {
-        console.log(response);
         this.spells = response;
       });
   }
