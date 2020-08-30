@@ -37,8 +37,8 @@ export class HouseComponent implements OnInit {
       });
   }
 
-  showCharacter(id: string) {
-    this.router.navigate(['/character', id]);
+  showCharacter(house: string, id: string) {
+    this.router.navigate(['/character', house, id]);
   }
 
 }

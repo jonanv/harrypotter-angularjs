@@ -44,10 +44,18 @@ export class HarrypotterService {
       }));
   }
 
+  getCharacters() {
+
+  }
+
   getCharacter(id: string) {
     return this.getQuery('characters/', id)
       .pipe(map((response: Character) => {
         return response;
       }));
+  }
+
+  getSpells() {
+
   }
 }

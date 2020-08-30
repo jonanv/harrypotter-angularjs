@@ -4,7 +4,7 @@
 <div class="row animated fadeIn fast">
     <div class="col-md-4">
         <br><br>
-        <a [routerLink]="['/characters']" class="btn btn-outline-danger btn-block">Regresar</a>
+        <button type="button" (click)="backHouse()" class="btn btn-outline-danger btn-block">Regresar</button>
     </div>
     <div *ngIf="character" class="col-md-8">
         <p>House: {{ character.house }}</p>

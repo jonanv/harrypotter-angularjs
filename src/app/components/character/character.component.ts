@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HarrypotterService } from '../../services/harrypotter.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { Character } from '../../interfaces/character.interface';
 
@@ -15,7 +15,8 @@ export class CharacterComponent implements OnInit {
 
   constructor(
     private harrypotterService: HarrypotterService,
-    private ActivatedRoute: ActivatedRoute
+    private ActivatedRoute: ActivatedRoute,
+    private router: Router
   ) {
     this.getCharacter();
   }
@@ -31,6 +32,11 @@ export class CharacterComponent implements OnInit {
       .subscribe((response: Character) => {
         this.character = response;
       });
+  }
+
+  backHouse() {
+    const house = this.ActivatedRoute.snapshot.paramMap.get('house');
+    this.router.navigate(['house/', house]);
   }
 
 }
