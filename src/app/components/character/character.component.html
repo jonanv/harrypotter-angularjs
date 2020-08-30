@@ -1,0 +1,19 @@
+<h1 class="animated fadeIn">{{ character?.name | uppercase }} <small>({{ character?.role }})</small></h1>
+<hr>
+
+<div class="row animated fadeIn fast">
+    <div class="col-md-4">
+        <br><br>
+        <a [routerLink]="['/characters']" class="btn btn-outline-danger btn-block">Regresar</a>
+    </div>
+    <div *ngIf="character" class="col-md-8">
+        <p>House: {{ character.house }}</p>
+        <p>School: {{ character.school }}</p>
+        <p>Ministry of magic: {{ character.ministryOfMagic }}</p>
+        <p>Order of the phoenix: {{ character.orderOfThePhoenix }}</p>
+        <p>Dumbledores army: {{ character.dumbledoresArmy }}</p>
+        <p>Death eater: {{ character.deathEater }}</p>
+        <p>Blood status: {{ character.bloodStatus }}</p>
+        <p>Species: {{ character.species }}</p>
+    </div>
+</div>

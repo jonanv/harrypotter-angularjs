@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { HarrypotterService } from '../../services/harrypotter.service';
 import { first } from 'rxjs/operators';
 import { House, Member } from '../../interfaces/house.interface';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-house',
@@ -17,7 +17,8 @@ export class HouseComponent implements OnInit {
 
   constructor(
     private harrypotterService: HarrypotterService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {
     this.getHouse();
   }
@@ -36,8 +37,8 @@ export class HouseComponent implements OnInit {
       });
   }
 
-  showWizard(id: string) {
-
+  showCharacter(id: string) {
+    this.router.navigate(['/character', id]);
   }
 
 }

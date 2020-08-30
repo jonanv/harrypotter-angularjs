@@ -16,6 +16,7 @@ import { WizardsComponent } from './components/wizards/wizards.component';
 import { SpellsComponent } from './components/spells/spells.component';
 import { CountMembersPipe } from './pipes/count-members.pipe';
 import { HouseComponent } from './components/house/house.component';
+import { CharacterComponent } from './components/character/character.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HouseComponent } from './components/house/house.component';
     WizardsComponent,
     SpellsComponent,
     CountMembersPipe,
-    HouseComponent
+    HouseComponent,
+    CharacterComponent
   ],
   imports: [
     BrowserModule,
