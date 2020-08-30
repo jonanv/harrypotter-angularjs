@@ -10,7 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
-import { FooterComponent } from './components/shared/footer/footer.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HousesComponent } from './components/houses/houses.component';
 import { SpellsComponent } from './components/spells/spells.component';
@@ -24,7 +23,6 @@ import { CharactersComponent } from './components/characters/characters.componen
     AppComponent,
     HeaderComponent,
     LoadingComponent,
-    FooterComponent,
     NavbarComponent,
     HousesComponent,
     SpellsComponent,
