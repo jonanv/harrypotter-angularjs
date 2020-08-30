@@ -1,3 +1,4 @@
+// Interface de tipo Character (personaje)
 export interface Character {
   _id: string;
   name: string;
@@ -13,6 +14,7 @@ export interface Character {
   species: string;
 }
 
+// Interface de tipo Characters (personajes)
 export interface Characters {
   _id: string;
   name: string;

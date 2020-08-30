@@ -10,8 +10,11 @@ import { first } from 'rxjs/operators';
 })
 export class SpellsComponent implements OnInit {
 
+  // Arreglo de tipo Spells
   spells: Spells[] = [];
+  // Variable loading
   loading: boolean = false;
+  // Arreglo hechizo
   type = [
     'Charm',
     'Enchantment',
@@ -22,14 +25,16 @@ export class SpellsComponent implements OnInit {
   ];
 
   constructor(
-    private harrypotterService: HarrypotterService
+    private harrypotterService: HarrypotterService // Injeccion del servicio HarryPotter
   ) {
+    // Llamado al metodo local de obtener hechizos
     this.getSpells();
   }
 
   ngOnInit(): void {
   }
 
+  // Metodo local obtener hechizos que llama al metodo del servicio HarryPotter
   getSpells() {
     this.loading = true;
     this.harrypotterService.getSpells()

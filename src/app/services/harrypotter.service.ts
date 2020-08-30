@@ -12,6 +12,7 @@ import { map } from "rxjs/operators";
 })
 export class HarrypotterService {
 
+  // Llave que es obligatoria en cada consulta y enviada como parametro
   private key: string = '$2a$10$cjtm5hVKpQ.sBMnqoE8Q1uN2JaDptzcFHqP/7IQtoDp5HJMze1Hu6';
 
   constructor(
@@ -20,6 +21,7 @@ export class HarrypotterService {
 
   }
 
+  // Metodo general que obtiene las consultas de acuerdo a los parametros
   private getQuery(query: string, id?: string) {
     let url = '';
     if (id === undefined) {
@@ -31,6 +33,7 @@ export class HarrypotterService {
     return this.http.get(url);
   }
 
+  // Metodo que obtiene las casas
   getHouses() {
     return this.getQuery('houses')
       .pipe(map((response: Houses[]) => {
@@ -38,6 +41,7 @@ export class HarrypotterService {
       }));
   }
 
+  // Metodo que obtiene una casa por id
   getHouse(id: string) {
     return this.getQuery('houses/', id)
       .pipe(map((response: House) => {
@@ -45,6 +49,7 @@ export class HarrypotterService {
       }));
   }
 
+  // Metodo que obtiene los personajes
   getCharacters() {
     return this.getQuery('characters')
       .pipe(map((response: Characters[]) => {
@@ -52,6 +57,7 @@ export class HarrypotterService {
       }));
   }
 
+  // Metodo que obtiene un personaje por id
   getCharacter(id: string) {
     return this.getQuery('characters/', id)
       .pipe(map((response: Character) => {
@@ -59,6 +65,7 @@ export class HarrypotterService {
       }));
   }
 
+  // Metodo que obtiene los hechizos
   getSpells() {
     return this.getQuery('spells')
       .pipe(map((response: Spells[]) => {

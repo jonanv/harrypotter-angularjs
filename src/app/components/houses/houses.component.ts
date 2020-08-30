@@ -12,19 +12,23 @@ import { Router } from '@angular/router';
 })
 export class HousesComponent implements OnInit {
 
+  // Arreglo de tipo Houses
   houses: Houses[] = [];
+  // Variable loading
   loading: boolean = false;
 
   constructor(
-    private harrypotterService: HarrypotterService,
-    private router: Router
+    private harrypotterService: HarrypotterService, // Injeccion del servicio HarryPotter
+    private router: Router // Injeccion del servicio router para redireccionar a otras secciones
   ) {
+    // Llamado al metodo local de obtener casas
     this.getHouses();
   }
 
   ngOnInit(): void {
   }
 
+  // Metodo local obtener casas que llama al metodo del servicio HarryPotter
   getHouses() {
     this.loading = true;
     this.harrypotterService.getHouses()
@@ -36,6 +40,7 @@ export class HousesComponent implements OnInit {
       });
   }
 
+  // Metodo local que redirecciona a la seccion house y que recibe como parametro un id de una casa
   showHouse(id: string) {
     this.router.navigate(['/house', id])
   }

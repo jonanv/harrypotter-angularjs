@@ -19,7 +19,6 @@
             </ag-table-header>
             <ag-table-body>
                 <ag-table-row *ngFor="let item of table.items">
-                    <!-- <ag-table-cell>{{ item._id }}</ag-table-cell> -->
                     <ag-table-cell>{{ item.spell ? item.spell : "-" }}</ag-table-cell>
                     <ag-table-cell>{{ item.type ? item.type : "-" }}</ag-table-cell>
                     <ag-table-cell>{{ item.effect ? item.effect : "-" }}</ag-table-cell>

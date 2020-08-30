@@ -24,6 +24,8 @@
                 </ag-table-col>
             </ag-table-header>
             <ag-table-body>
+                <!-- Bucle que recorre el arreglo de los personajes y que recibido en la varianle items,
+                  es clickeable y envia el id que redirecciona a la seccion personaje -->
                 <ag-table-row *ngFor="let item of table.items" (click)="showCharacter(item._id)">
                     <!-- <ag-table-cell>{{ item._id }}</ag-table-cell> -->
                     <ag-table-cell>{{ item.name ? item.name : "-" }}</ag-table-cell>

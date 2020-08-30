@@ -12,14 +12,18 @@ import { Router } from '@angular/router';
 })
 export class CharactersComponent implements OnInit {
 
+  // Arreglo de tipo Characters
   characters: Characters[] = [];
+  // Variable loading
   loading: boolean = false;
+  // Arreglo house
   house = [
     'Gryffindor',
     'Ravenclaw',
     'Hufflepuff',
     'Slytherin'
   ];
+  // Arreglo bloodStatus
   bloodStatus = [
     'half-blood',
     'unknown',
@@ -32,15 +36,17 @@ export class CharactersComponent implements OnInit {
   ];
 
   constructor(
-    private harrypotterService: HarrypotterService,
-    private router: Router
+    private harrypotterService: HarrypotterService, // Injeccion del servicio HarryPotter
+    private router: Router // Injeccion del servicio router para redireccionar a otras secciones
   ) {
+    // Llamado al metodo local de obtener personajes
     this.getCharacters();
   }
 
   ngOnInit(): void {
   }
 
+  // Metodo local obtener personajes que llama al metodo del servicio HarryPotter
   getCharacters() {
     this.loading = true;
     this.harrypotterService.getCharacters()
@@ -51,6 +57,7 @@ export class CharactersComponent implements OnInit {
       });
   }
 
+  // Metodo local que redirecciona a la seccion personaje y que recibe como parametro un id de un personaje
   showCharacter(id: string) {
     this.router.navigate(['/character', id]);
   }

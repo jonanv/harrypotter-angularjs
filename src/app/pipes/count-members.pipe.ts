@@ -5,6 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class CountMembersPipe implements PipeTransform {
 
+  // Pipe que permite recibir un arreglo de tipo Member y contar los miembros de la casa
   transform(value: string[]): number {
     if(value.length > 0) {
       let countMembers: number = 0;
