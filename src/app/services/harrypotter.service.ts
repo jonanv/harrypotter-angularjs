@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { House } from '../interfaces/house.interface';
+import { House, Houses } from '../interfaces/house.interface';
 import { map } from "rxjs/operators";
 
 @Injectable({
@@ -14,18 +14,32 @@ export class HarrypotterService {
 
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
 
-  private getQuery(query: string) {
-    const url = `${ environment.apiUrl }${ query }?key=${ this.key }`;
+  }
 
+  private getQuery(query: string, id?: string) {
+    let url = '';
+    if (id === undefined) {
+      url = `${ environment.apiUrl }${ query }?key=${ this.key }`;
+    }
+    else {
+      url = `${ environment.apiUrl }${ query }${ id }?key=${ this.key }`;
+    }
     return this.http.get(url);
   }
 
   getHouses() {
     return this.getQuery('houses')
-      .pipe(map((response: House[]) => {
+      .pipe(map((response: Houses[]) => {
         return response;
+      }));
+  }
+
+  getHouse(id: string) {
+    return this.getQuery('houses/', id)
+      .pipe(map((response: House) => {
+        return response[0];
       }));
   }
 }

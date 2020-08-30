@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { HarrypotterService } from '../../services/harrypotter.service';
 import { first } from 'rxjs/operators';
-import { House } from '../../interfaces/house.interface';
+import { Houses } from '../../interfaces/house.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-houses',
@@ -11,10 +12,11 @@ import { House } from '../../interfaces/house.interface';
 })
 export class HousesComponent implements OnInit {
 
-  houses: House[] = [];
+  houses: Houses[] = [];
 
   constructor(
-    private harrypotterService: HarrypotterService
+    private harrypotterService: HarrypotterService,
+    private router: Router
   ) {
     this.getHouses();
   }
@@ -25,10 +27,14 @@ export class HousesComponent implements OnInit {
   getHouses() {
     this.harrypotterService.getHouses()
       .pipe(first())
-      .subscribe((response: House[]) => {
-        console.log(response);
+      .subscribe((response: Houses[]) => {
+        // console.log(response);
         this.houses = response;
       });
+  }
+
+  showHouse(id: string) {
+    this.router.navigate(['/house', id])
   }
 
 }

@@ -10,7 +10,7 @@
             <p class="card-text"><small class="text-muted">Members: {{ house.members | countMembers }}</small></p>
         </div>
         <div class="card-footer">
-            <button type="button" class="btn btn-outline-warning btn-block">Show more...</button>
+            <button type="button" (click)="showHouse(house._id)" class="btn btn-outline-warning btn-block">Show more...</button>
         </div>
     </div>
 

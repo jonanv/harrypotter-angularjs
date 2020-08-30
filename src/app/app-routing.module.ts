@@ -5,11 +5,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { HousesComponent } from './components/houses/houses.component';
 import { WizardsComponent } from './components/wizards/wizards.component';
 import { SpellsComponent } from './components/spells/spells.component';
+import { HouseComponent } from './components/house/house.component';
 
 
 const routes: Routes = [
   { path: 'houses', component: HousesComponent },
+  { path: 'house/:id', component: HouseComponent },
   { path: 'wizards', component: WizardsComponent },
+  { path: 'wizard/:id', component:  },
   { path: 'spells', component: SpellsComponent },
 
   { path: '**', pathMatch: 'full', redirectTo: 'houses' }
