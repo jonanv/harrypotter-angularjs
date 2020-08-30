@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { HarrypotterService } from '../../services/harrypotter.service';
 import { first } from 'rxjs/operators';
 import { Characters } from '../../interfaces/character.interface';

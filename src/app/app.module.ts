@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 // Imports
 import { HttpClientModule } from "@angular/common/http";
+import { AgTableModule } from 'ag-table';
 
 // Components
 import { AppRoutingModule } from './app-routing.module';
@@ -35,7 +36,8 @@ import { CharactersComponent } from './components/characters/characters.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AgTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
