@@ -1,4 +1,8 @@
-<div>
+<div *ngIf="loading">
+    <app-loading></app-loading>
+</div>
+
+<div *ngIf="!loading">
     <div class="card-columns">
 
         <div *ngFor="let character of characters; let i = index" class="card">

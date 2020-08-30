@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class CharactersComponent implements OnInit {
 
   characters: Characters[] = [];
+  loading: boolean = false;
 
   constructor(
     private harrypotterService: HarrypotterService,
@@ -24,10 +25,12 @@ export class CharactersComponent implements OnInit {
   }
 
   getCharacters() {
+    this.loading = true;
     this.harrypotterService.getCharacters()
       .pipe(first())
       .subscribe((response: Characters[]) => {
         this.characters = response;
+        this.loading = false;
       });
   }
 

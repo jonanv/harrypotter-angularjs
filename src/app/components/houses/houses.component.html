@@ -1,19 +1,25 @@
-<div class="card-columns">
+<div *ngIf="loading">
+    <app-loading></app-loading>
+</div>
 
-    <div *ngFor="let house of houses; let i = index" class="card">
-        <div class="card-header">
-            <h4 class="card-title">{{ house.name | uppercase }}</h4>
-        </div>
-        <div class="card-body">
-            <p class="card-text">{{ house.mascot | titlecase }}</p>
-            <p class="card-text">Head of house: {{ house.headOfHouse }}</p>
-            <p class="card-text"><small class="text-muted">
+<div *ngIf="!loading">
+    <div class="card-columns">
+
+        <div *ngFor="let house of houses; let i = index" class="card">
+            <div class="card-header">
+                <h4 class="card-title">{{ house.name | uppercase }}</h4>
+            </div>
+            <div class="card-body">
+                <p class="card-text">{{ house.mascot | titlecase }}</p>
+                <p class="card-text">Head of house: {{ house.headOfHouse }}</p>
+                <p class="card-text"><small class="text-muted">
               <i class="fas fa-users"></i> Members: {{ house.members | countMembers }}</small>
-            </p>
+                </p>
+            </div>
+            <div class="card-footer">
+                <button type="button" (click)="showHouse(house._id)" class="btn btn-outline-warning btn-block">Show more...</button>
+            </div>
         </div>
-        <div class="card-footer">
-            <button type="button" (click)="showHouse(house._id)" class="btn btn-outline-warning btn-block">Show more...</button>
-        </div>
-    </div>
 
+    </div>
 </div>

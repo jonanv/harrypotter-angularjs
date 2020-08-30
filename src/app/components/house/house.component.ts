@@ -14,6 +14,7 @@ export class HouseComponent implements OnInit {
 
   house: House;
   members: Member[];
+  loading: boolean = false;
 
   constructor(
     private harrypotterService: HarrypotterService,
@@ -28,12 +29,14 @@ export class HouseComponent implements OnInit {
 
   getHouse() {
     const id: string = this.activatedRoute.snapshot.paramMap.get('id');
+    this.loading = true;
 
     this.harrypotterService.getHouse(id)
       .pipe(first())
       .subscribe((response: House) => {
         this.house = response;
         this.members = response.members;
+        this.loading = false;
       });
   }
 

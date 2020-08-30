@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class HousesComponent implements OnInit {
 
   houses: Houses[] = [];
+  loading: boolean = false;
 
   constructor(
     private harrypotterService: HarrypotterService,
@@ -25,11 +26,13 @@ export class HousesComponent implements OnInit {
   }
 
   getHouses() {
+    this.loading = true;
     this.harrypotterService.getHouses()
       .pipe(first())
       .subscribe((response: Houses[]) => {
         // console.log(response);
         this.houses = response;
+        this.loading = false;
       });
   }
 

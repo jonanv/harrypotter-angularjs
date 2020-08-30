@@ -1,4 +1,8 @@
-<div>
+<div *ngIf="loading">
+    <app-loading></app-loading>
+</div>
+
+<div *ngIf="!loading">
 
     <div *ngIf="house">
         <div class="card text-white bg-warning mb-3">

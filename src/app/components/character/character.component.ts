@@ -12,6 +12,7 @@ import { Character } from '../../interfaces/character.interface';
 export class CharacterComponent implements OnInit {
 
   character: Character;
+  loading: boolean = false;
 
   constructor(
     private harrypotterService: HarrypotterService,
@@ -26,11 +27,13 @@ export class CharacterComponent implements OnInit {
 
   getCharacter() {
     const id = this.ActivatedRoute.snapshot.paramMap.get('id');
+    this.loading = true;
 
     this.harrypotterService.getCharacter(id)
       .pipe(first())
       .subscribe((response: Character) => {
         this.character = response;
+        this.loading = false;
       });
   }
 

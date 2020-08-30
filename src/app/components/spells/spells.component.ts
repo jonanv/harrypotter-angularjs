@@ -11,6 +11,7 @@ import { first } from 'rxjs/operators';
 export class SpellsComponent implements OnInit {
 
   spells: Spells[] = [];
+  loading: boolean = false;
 
   constructor(
     private harrypotterService: HarrypotterService
@@ -22,10 +23,12 @@ export class SpellsComponent implements OnInit {
   }
 
   getSpells() {
+    this.loading = true;
     this.harrypotterService.getSpells()
       .pipe(first())
       .subscribe((response: Spells[]) => {
         this.spells = response;
+        this.loading = false;
       });
   }
 
