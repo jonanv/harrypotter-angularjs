@@ -36,7 +36,12 @@ export class CharacterComponent implements OnInit {
 
   backHouse() {
     const house = this.ActivatedRoute.snapshot.paramMap.get('house');
-    this.router.navigate(['house/', house]);
+    if(house === null) {
+      this.router.navigate(['characters/']);
+    }
+    else {
+      this.router.navigate(['house/', house]);
+    }
   }
 
 }

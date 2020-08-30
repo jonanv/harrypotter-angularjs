@@ -3,8 +3,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { House, Houses } from '../interfaces/house.interface';
+import { Character, Characters } from '../interfaces/character.interface';
+import { Spells } from '../interfaces/spell.interface';
 import { map } from "rxjs/operators";
-import { Character } from '../interfaces/character.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -45,7 +46,10 @@ export class HarrypotterService {
   }
 
   getCharacters() {
-
+    return this.getQuery('characters')
+      .pipe(map((response: Characters[]) => {
+        return response;
+      }));
   }
 
   getCharacter(id: string) {
@@ -56,6 +60,9 @@ export class HarrypotterService {
   }
 
   getSpells() {
-
+    return this.getQuery('spells')
+      .pipe(map((response: Spells[]) => {
+        return response;
+      }));
   }
 }

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { HarrypotterService } from '../../services/harrypotter.service';
+import { first } from 'rxjs/operators';
+import { Characters } from '../../interfaces/character.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-characters',
@@ -7,9 +11,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CharactersComponent implements OnInit {
 
-  constructor() { }
+  characters: Characters[] = [];
+
+  constructor(
+    private harrypotterService: HarrypotterService,
+    private router: Router
+  ) {
+    this.getCharacters();
+  }
 
   ngOnInit(): void {
+  }
+
+  getCharacters() {
+    this.harrypotterService.getCharacters()
+      .pipe(first())
+      .subscribe((response: Characters[]) => {
+        console.log(response);
+        this.characters = response;
+      });
+  }
+
+  showCharacter(id: string) {
+    this.router.navigate(['/character', id]);
   }
 
 }

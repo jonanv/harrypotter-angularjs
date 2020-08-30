@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'house/:id', component: HouseComponent },
   { path: 'characters', component: CharactersComponent },
   { path: 'character/:house/:id', component: CharacterComponent },
+  { path: 'character/:id', component: CharacterComponent },
   { path: 'spells', component: SpellsComponent },
 
   { path: '**', pathMatch: 'full', redirectTo: 'houses' }

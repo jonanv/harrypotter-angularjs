@@ -1,1 +1,14 @@
-<p>characters works!</p>
+<div>
+    <div class="card-columns">
+
+        <div *ngFor="let character of characters; let i = index" class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{ character.name }}</h4>
+            </div>
+            <div class="card-footer">
+                <button type="button" (click)="showCharacter(character._id)" class="btn btn-outline-warning btn-block">Show more...</button>
+            </div>
+        </div>
+
+    </div>
+</div>
