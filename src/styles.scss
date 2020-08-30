@@ -2,3 +2,21 @@
 
 @import '~ag-table/scss/style.scss';
 @include ag-table-core();
+.agtable {
+    border: 1px solid #ccc;
+    border-radius: 5px
+}
+
+.ag-table-paginate .caption {
+    margin-left: 20px;
+}
+
+.ag-table-paginate>ul {
+    margin-right: 20px;
+}
+
+.ag-table-paginate>ul>li.actived button {
+    background-color: #ffc107;
+    color: #000;
+    cursor: default;
+}

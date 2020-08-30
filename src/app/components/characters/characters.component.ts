@@ -14,6 +14,22 @@ export class CharactersComponent implements OnInit {
 
   characters: Characters[] = [];
   loading: boolean = false;
+  house = [
+    'Gryffindor',
+    'Ravenclaw',
+    'Hufflepuff',
+    'Slytherin'
+  ];
+  bloodStatus = [
+    'half-blood',
+    'unknown',
+    'pure-blood',
+    'muggle',
+    'quarter-villa',
+    'squib',
+    'muggle-born',
+    'half-giant'
+  ];
 
   constructor(
     private harrypotterService: HarrypotterService,

@@ -3,45 +3,36 @@
 </div>
 
 <div *ngIf="!loading">
-    <!-- <div class="card-columns">
 
-        <div *ngFor="let character of characters; let i = index" class="card">
-            <div class="card-body">
-                <h4 class="card-title">{{ character.name }}</h4>
-            </div>
-            <div class="card-footer">
-                <button type="button" (click)="showCharacter(character._id)" class="btn btn-outline-warning btn-block">Show more...</button>
-            </div>
-        </div>
-
-    </div> -->
-
-
-    <ag-table #table paginate="20" [items]="characters" height="500px" min-width="500px">
-        <ag-table-header>
-            <ag-table-col filter field="_id" placeholder="Identifier" width="250px">
-                ID
-            </ag-table-col>
-            <ag-table-col filter field="name" placeholder="Name">
-                Name
-            </ag-table-col>
-            <ag-table-col filter field="role" placeholder="Role">
-                Role
-            </ag-table-col>
-            <ag-table-col filter field="house" placeholder="House" width="150px">
-                House
-            </ag-table-col>
-        </ag-table-header>
-        <ag-table-body>
-            <ag-table-row *ngFor="let item of table.items">
-                <ag-table-cell>{{ item._id }}</ag-table-cell>
-                <ag-table-cell>{{ item.name }}</ag-table-cell>
-                <ag-table-cell>{{ item.role }}</ag-table-cell>
-                <ag-table-cell>{{ item.house }}</ag-table-cell>
-            </ag-table-row>
-        </ag-table-body>
-    </ag-table>
-
-
+    <div class="agtable">
+        <ag-table #table paginate="20" [items]="characters" clickable height="500px" min-width="500px">
+            <ag-table-header>
+                <!-- <ag-table-col filter field="_id" placeholder="Identifier" width="250px">
+                    ID
+                </ag-table-col> -->
+                <ag-table-col filter field="name" placeholder="Name">
+                    Name
+                </ag-table-col>
+                <ag-table-col filter field="role" placeholder="Role">
+                    Role
+                </ag-table-col>
+                <ag-table-col filter="select" field="house" [options]="house" placeholder="House" width="150px">
+                    House
+                </ag-table-col>
+                <ag-table-col filter="select" field="bloodStatus" [options]="bloodStatus" placeholder="Blood tatus" width="150px">
+                    Blood status
+                </ag-table-col>
+            </ag-table-header>
+            <ag-table-body>
+                <ag-table-row *ngFor="let item of table.items" (click)="showCharacter(item._id)">
+                    <!-- <ag-table-cell>{{ item._id }}</ag-table-cell> -->
+                    <ag-table-cell>{{ item.name ? item.name : "-" }}</ag-table-cell>
+                    <ag-table-cell>{{ item.role ? item.role : "-" }}</ag-table-cell>
+                    <ag-table-cell>{{ item.house ? item.house : "-" }}</ag-table-cell>
+                    <ag-table-cell>{{ item.bloodStatus ? item.bloodStatus : "-" }}</ag-table-cell>
+                </ag-table-row>
+            </ag-table-body>
+        </ag-table>
+    </div>
 
 </div>
