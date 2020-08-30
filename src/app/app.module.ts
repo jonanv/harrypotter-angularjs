@@ -14,6 +14,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HousesComponent } from './components/houses/houses.component';
 import { WizardsComponent } from './components/wizards/wizards.component';
 import { SpellsComponent } from './components/spells/spells.component';
+import { CountMembersPipe } from './pipes/count-members.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SpellsComponent } from './components/spells/spells.component';
     NavbarComponent,
     HousesComponent,
     WizardsComponent,
-    SpellsComponent
+    SpellsComponent,
+    CountMembersPipe
   ],
   imports: [
     BrowserModule,

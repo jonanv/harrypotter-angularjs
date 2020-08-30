@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { House } from '../interfaces/house.interface';
 import { map } from "rxjs/operators";
 
 @Injectable({
@@ -23,8 +24,7 @@ export class HarrypotterService {
 
   getHouses() {
     return this.getQuery('houses')
-      .pipe(map(response => {
-        console.log(response);
+      .pipe(map((response: House[]) => {
         return response;
       }));
   }
