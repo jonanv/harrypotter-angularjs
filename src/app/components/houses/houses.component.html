@@ -10,14 +10,16 @@
                 <h4 class="card-title">{{ house.name | uppercase }}</h4>
             </div>
             <div class="card-body">
-                <p class="card-text">{{ house.mascot | titlecase }}</p>
-                <p class="card-text">Head of house: {{ house.headOfHouse }}</p>
-                <p class="card-text"><small class="text-muted">
-              <i class="fas fa-users"></i> Members: {{ house.members | countMembers }}</small>
+                <p class="card-text"><b>Mascot</b>: {{ house.mascot | titlecase }}</p>
+                <p class="card-text"><b>Head of house</b>: {{ house.headOfHouse }}</p>
+                <p class="card-text">
+                    <small class="text-muted">
+                      <i class="fas fa-users"></i> Members: <b>{{ house.members | countMembers }}</b>
+                    </small>
                 </p>
             </div>
             <div class="card-footer">
-                <button type="button" (click)="showHouse(house._id)" class="btn btn-outline-warning btn-block">Show more...</button>
+                <button type="button" (click)="showHouse(house._id)" class="btn btn-warning btn-block">Show more...</button>
             </div>
         </div>
 
